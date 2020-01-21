@@ -33,7 +33,9 @@ jQuery(document).ready(function($){
             }
        });
 
-      // console.log($(element));
-//};
+       $("button").click(function(){
+        alert ();
+       });
+
     //add local storge saving 
 });
