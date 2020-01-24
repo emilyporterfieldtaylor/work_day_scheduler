@@ -1,11 +1,18 @@
-jQuery(document).ready(function($){
+$(document).ready(function($){
 
     var currentDayEl = document.querySelector("#currentDay");
     currentDayEl.textContent = moment().format('MMMM Do YYYY');
 
     var currentHourEl = moment().format('HH');
 
-    var taskEL = document
+    var tasks = JSON.parse(localStorage.getItem("tasks"));
+
+    if (tasks != null){
+        $("textarea").each(function (index, element){
+            var currentHourSavedValue = tasks[index];
+            $(element).val(currentHourSavedValue); 
+        });
+    }
 
     $(".time-block").each(function (index, element) {
             if (currentHourEl > $(element).attr("id")) {
@@ -19,9 +26,11 @@ jQuery(document).ready(function($){
 
        //add local storage saving 
        $("button").click(function(){
-        alert ();
-        localStorage.setItem("task", JSON.stringify(window.HTMLTextAreaElement));
+        tasks = $("textarea").map(function(){
+            return $(this).val();
+        });
+        localStorage.setItem("tasks", JSON.stringify(tasks));
        });
-
+    
 
 });

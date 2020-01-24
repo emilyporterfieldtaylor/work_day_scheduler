@@ -33,4 +33,3 @@ This project is licensed under the MIT License
 ## Acknowledgments
 
 * Tyler Wood - my helpful roommate
-* Leandra - for helping me with the local storage bits
